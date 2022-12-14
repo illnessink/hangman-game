@@ -7,8 +7,11 @@ body {
     width: 60%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* align-content: center; */
+    margin: auto;
+}
+
+#dashWord {
+    font-size: 60px;
     margin: auto;
 }
 
@@ -18,12 +21,15 @@ button {
     background-color: #abccbe;
 }
 
-#alphabetbButtons {
+#alphabetButtons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    /* align-content: center; */
     gap: 10px;
     width: 90%;
+    margin: auto;
+    margin-top: 30px;
 }
 
 img {
