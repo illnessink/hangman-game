@@ -1,10 +1,10 @@
 const answerDisplay = document.getElementById("dashWord");
 // const answerDisplay = $('#dashWord');
 const guesses = 6;
-const answer = "";
+let answer = "";
 const wordDisplay = [];
 const button = $('.alphButton');
-
+let randomWord = '';
 
 
 $.ajax({
@@ -13,24 +13,63 @@ $.ajax({
     (data) => {
       console.log(data.word);
       randomWord = data.word;
+    //   render();
       answerDisplay.innerHTML = setRandomWordDisplay(randomWord);
+      answer = randomWord;
+      letterGuess(randomWord);
     },
     (error) => {
       console.log("bad request", error);
     }
   )
+ 
+//   let test = 'a'
+
+function showLetter(word, letter) {
+    // console.log(word,letter)
+    let letterArray = word.split("");
+    console.log(letterArray)
+    let letterIndex = letterArray.indexOf(letter);
+    $(`#box-${letterIndex}`).text(letter);
+}
+
+function locations(substring,string){
+    var a=[],i=-1;
+    while((i=string.indexOf(substring,i+1)) >= 0) a.push(i);
+    return a;
+  }
+  
+//   console.log(locations("s","scissors"));
+
+function letterGuess(word, letter) {
+    if (word.includes(letter)) {
+        console.log(`The word ${word} contains the letter ${letter}`)
+        showLetter(word, letter)
+    } else {
+        console.log(`The word ${word} does NOT contain the letter ${letter}`)
+    }
+}
+
+button.on("click", function(evt) {
+    console.log(this.innerHTML);
+    letter = this.innerHTML.toLowerCase()
+    return letterGuess(randomWord,letter);
+  })
 
   function setRandomWordDisplay(word) {
     let letterArray = word.split("");
     console.log(letterArray);
-    letterArray.forEach(element => {
-        wordDisplay.push("_");  
+    letterArray.forEach((element, i) => {
+        wordDisplay.push(`<span id='box-${i}'>_</span>`);  
         // console.log(wordDisplay);
     });
-    console.log(wordDisplay);
+    // console.log(wordDisplay);
     return wordDisplay.join(" ");
   }
 
-  button.on("click", function() {
-    console.log(this.innerHTML)
-  })
+
+  
+
+//   console.log(wordDisplay);
+//   console.log(answer);
+//   console.log(str)
