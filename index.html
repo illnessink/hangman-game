@@ -6,13 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@500&display=swap" rel="stylesheet">
     <script defer src="./js/script.js"></script>
     <title>Hangman Game</title>
 </head>
 <body>
-    <h1>Welcome to the game of Hangman</h1>
+    <h1>Welcome to the game of <br>HANGMAN</h1>
     <h3>Guess the word in 6 guesses or hang x__x</h3>
-    <img src="https://p.kindpng.com/picc/s/356-3562727_tiki-hangman-game-all-body-parts-present-hangman.png">
+    <div id="imgGuessNotify">
+        <img src="https://p.kindpng.com/picc/s/356-3562727_tiki-hangman-game-all-body-parts-present-hangman.png">
+        <span id="guessesLeft">GUESSES LEFT:</span>
+    </div>
+    <!-- <img src="https://p.kindpng.com/picc/s/356-3562727_tiki-hangman-game-all-body-parts-present-hangman.png">
+    <span>You have guesses left:</span> -->
     <div id="dashWord"></div>
     <div id="alphabetButtons">
         <button class="alphButton" id="a">A</button>
