@@ -13,7 +13,7 @@ $.ajax({
   }).then(
     (data) => {
       console.log(data.word);
-      randomWord = data.word;
+      randomWord = data.word.toLowerCase();
     //   render();
       answerDisplay.innerHTML = setRandomWordDisplay(randomWord);
       answer = randomWord;
@@ -62,7 +62,9 @@ function letterGuess(word, letter) {
 
 button.on("click", function(evt) {
     console.log(this.innerHTML);
-    letter = this.innerHTML.toLowerCase()
+    letter = this.innerHTML.toLowerCase();
+    this.disabled = true;
+    this.style.backgroundColor = "red";
     return letterGuess(randomWord,letter);
   })
 
