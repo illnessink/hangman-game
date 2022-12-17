@@ -16,19 +16,22 @@ body {
     margin: auto;
 }
 
-#mgGuessNotify {
-    position: absolute;
-    /* display: inline-block; */
+#imgGuessNotify {
+    /* position: absolute; */
+    display: flex;
 }
 
-#guessesLeft {
+#guessesLeft, #winLose  {
     font-size: 20px;
-    /* margin: 20px 0 50px 0; */
-    position: absolute;
-    top: 10;
-    right: 1;
     margin: 20px;
+    text-align: left;
 }
+
+#guessNotifyContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 
 button {
     width: 40px;

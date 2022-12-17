@@ -7,6 +7,7 @@ let answer = "";
 const wordDisplay = [];
 const button = $('.alphButton');
 let randomWord = '';
+let winOrLose = $('#winLose');
 
 
 $.ajax({
@@ -52,7 +53,15 @@ function letterGuess(word, letter) {
         guesses -= 1
         console.log(`guesses: ${guesses}`)
         guessCount.text(`GUESSES LEFT: ${guesses}`)
+        winOrLoseCheck(guesses, word)
     }
+}
+
+function winOrLoseCheck(guess, word) {
+    if (guess === 0) {
+        winOrLose.text(`SORRY, YOU LOST! THE WORD WAS ${word.toUpperCase()}! `)
+    
+}
 }
 
 button.on("click", function(evt) {
