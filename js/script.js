@@ -23,30 +23,36 @@ $.ajax({
     }
   )
  
-//   let test = 'a'
 
 function showLetter(word, letter) {
-    // console.log(word,letter)
+    console.log(word,letter)
     let letterArray = word.split("");
     console.log(letterArray)
     let letterIndex = letterArray.indexOf(letter);
-    $(`#box-${letterIndex}`).text(letter);
+    // console.log(letterIndex)
+    for (let i = 0; i < letterArray.length; i++) {
+    //    if (letterArray[i] === letter) 
+        if (letterArray.includes(letter)) {
+            letterArray.forEach((char, index) => {
+                if (char === letter) {
+                    $(`#box-${index}`).text(char);
+
+                }
+                
+            })
+
+        }
+    }
 }
 
-function locations(substring,string){
-    var a=[],i=-1;
-    while((i=string.indexOf(substring,i+1)) >= 0) a.push(i);
-    return a;
-  }
-  
-//   console.log(locations("s","scissors"));
 
 function letterGuess(word, letter) {
     if (word.includes(letter)) {
         console.log(`The word ${word} contains the letter ${letter}`)
         showLetter(word, letter)
+        // console.log(word, letter)
     } else {
-        console.log(`The word ${word} does NOT contain the letter ${letter}`)
+        // console.log(`The word ${word} does NOT contain the letter ${letter}`)
     }
 }
 
