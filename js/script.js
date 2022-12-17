@@ -35,8 +35,11 @@ function showLetter(word, letter) {
             letterArray.forEach((char, index) => {
                 if (char === letter) {
                     $(`#box-${index}`).text(char);
-                    // winCount += 1;
-                    // console.log(winCount)
+                    winCount += 1;
+                    console.log(`win count: ${winCount}`)
+                    if (winCount === word.length) {
+                            winOrLose.text(`HURRAH, YOU WON! THE MAN WAS SAVED! `)
+                        }
                 }  
             })
         }
@@ -46,8 +49,13 @@ function letterGuess(word, letter) {
     if (word.includes(letter)) {
         console.log(`The word ${word} contains the letter ${letter}`)
         showLetter(word, letter)
-        winCount += 1;
-        console.log(`win count: ${winCount}`)
+        // winCount += 1;
+        // console.log(`win count: ${winCount}`)
+        // if (winCount === word.length) {
+        //     // let letterArray = word.split("");
+        //     winOrLose.text(`HURRAH, YOU WON! THE WORD WAS ${word.toUpperCase()}! `)
+        // }
+        
         // console.log(word, letter)
     } else {
         guesses -= 1
@@ -58,10 +66,10 @@ function letterGuess(word, letter) {
 }
 
 function winOrLoseCheck(guess, word) {
+    // let letterArray = word.split("");
     if (guess === 0) {
         winOrLose.text(`SORRY, YOU LOST! THE WORD WAS ${word.toUpperCase()}! `)
-    
-}
+    } 
 }
 
 button.on("click", function(evt) {
