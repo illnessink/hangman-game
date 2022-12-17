@@ -1,6 +1,7 @@
 const answerDisplay = document.getElementById("dashWord");
 // const answerDisplay = $('#dashWord');
-const guesses = 6;
+let guesses = 7;
+let winCount = 0;
 let answer = "";
 const wordDisplay = [];
 const button = $('.alphButton');
@@ -30,28 +31,31 @@ function showLetter(word, letter) {
     console.log(letterArray)
     let letterIndex = letterArray.indexOf(letter);
     // console.log(letterIndex)
-    for (let i = 0; i < letterArray.length; i++) {
+    // for (let i = 0; i < letterArray.length; i++) {
     //    if (letterArray[i] === letter) 
-        if (letterArray.includes(letter)) {
+        // if (letterArray.includes(letter)) {
             letterArray.forEach((char, index) => {
                 if (char === letter) {
                     $(`#box-${index}`).text(char);
-
-                }
-                
+                    // winCount += 1;
+                    // console.log(winCount)
+                }  
             })
-
         }
-    }
-}
+    // }
+// }
 
 
 function letterGuess(word, letter) {
     if (word.includes(letter)) {
         console.log(`The word ${word} contains the letter ${letter}`)
         showLetter(word, letter)
+        winCount += 1;
+        console.log(`win count: ${winCount}`)
         // console.log(word, letter)
     } else {
+        guesses -= 1
+        console.log(`guesses: ${guesses}`)
         // console.log(`The word ${word} does NOT contain the letter ${letter}`)
     }
 }
