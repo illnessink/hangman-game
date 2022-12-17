@@ -19,9 +19,10 @@ body {
 #imgGuessNotify {
     /* position: absolute; */
     display: flex;
+    justify-content: center;
 }
 
-#guessesLeft, #winLose  {
+#guessesLeft, #winLose, #tryAgain {
     font-size: 20px;
     margin: 20px;
     text-align: left;
@@ -32,8 +33,11 @@ body {
     flex-direction: column;
 }
 
-
 button {
+    background-color: #f07f5d;
+}
+
+button.alphButton {
     width: 40px;
     height: 40px;
     background-color: #abccbe;
