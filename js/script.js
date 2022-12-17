@@ -1,6 +1,7 @@
 const answerDisplay = document.getElementById("dashWord");
 // const answerDisplay = $('#dashWord');
 let guesses = 7;
+let guessCount = $('#guessesLeft');
 let winCount = 0;
 let answer = "";
 const wordDisplay = [];
@@ -30,10 +31,6 @@ function showLetter(word, letter) {
     let letterArray = word.split("");
     console.log(letterArray)
     let letterIndex = letterArray.indexOf(letter);
-    // console.log(letterIndex)
-    // for (let i = 0; i < letterArray.length; i++) {
-    //    if (letterArray[i] === letter) 
-        // if (letterArray.includes(letter)) {
             letterArray.forEach((char, index) => {
                 if (char === letter) {
                     $(`#box-${index}`).text(char);
@@ -42,8 +39,6 @@ function showLetter(word, letter) {
                 }  
             })
         }
-    // }
-// }
 
 
 function letterGuess(word, letter) {
@@ -56,7 +51,7 @@ function letterGuess(word, letter) {
     } else {
         guesses -= 1
         console.log(`guesses: ${guesses}`)
-        // console.log(`The word ${word} does NOT contain the letter ${letter}`)
+        guessCount.text(`GUESSES LEFT: ${guesses}`)
     }
 }
 
