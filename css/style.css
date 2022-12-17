@@ -1,5 +1,21 @@
 html, body {
     box-sizing: border-box;
+    background-color: #DCDCDD;
+}
+
+header {
+    background-color: #226a85;
+    color: white;
+    margin-top: 30px;
+}
+
+h1 {
+    font-size: 45px;
+    margin: 0 0 15px 0
+}
+
+h2 {
+    margin-bottom: 5px;
 }
 
 body {
@@ -13,13 +29,15 @@ body {
 
 #dashWord {
     font-size: 60px;
-    margin: auto;
+    margin: 20px auto;
 }
 
 #imgGuessNotify {
     /* position: absolute; */
     display: flex;
     justify-content: center;
+    background-color: white;
+    height: 390px;
 }
 
 #guessesLeft, #winLose, #tryAgain {
@@ -34,13 +52,16 @@ body {
 }
 
 button {
-    background-color: #f07f5d;
+    background-color: #A14A76;
+    color: white;
+    border: none;
+    height: 25px;
 }
 
 button.alphButton {
     width: 40px;
     height: 40px;
-    background-color: #abccbe;
+    background-color: #0d2a43;
 }
 
 #alphabetButtons {

@@ -82,7 +82,7 @@ button.on("click", function(evt) {
     console.log(this.innerHTML);
     letter = this.innerHTML.toLowerCase();
     this.disabled = true;
-    this.style.backgroundColor = "red";
+    this.style.backgroundColor = "#640D14";
     return letterGuess(randomWord,letter);
   })
 
