@@ -23,14 +23,31 @@ $.ajax({
   (error) => {
     console.log("bad request", error);
   }
-)
+);
 
+function setRandomWordDisplay(word) {
+  let letterArray = word.split("");
+  // console.log(letterArray);
+  letterArray.forEach((element, i) => {
+    wordDisplay.push(`<span id='box-${i}'>_</span>`);
+    // console.log(wordDisplay);
+  });
+  // console.log(wordDisplay);
+  return wordDisplay.join(" ");
+};
+
+button.on("click", function (evt) {
+  // console.log(this.innerHTML);
+  letter = this.innerHTML.toLowerCase();
+  this.disabled = true;
+  this.style.backgroundColor = "#640D14";
+  return letterGuess(randomWord, letter);
+});
 
 function showLetter(word, letter) {
   // console.log(word,letter)
   let letterArray = word.split("");
   // console.log(letterArray)
-  let letterIndex = letterArray.indexOf(letter);
   letterArray.forEach((char, index) => {
     if (char === letter) {
       $(`#box-${index}`).text(char);
@@ -42,8 +59,7 @@ function showLetter(word, letter) {
       }
     }
   })
-}
-
+};
 
 function letterGuess(word, letter) {
   if (word.includes(letter)) {
@@ -55,7 +71,7 @@ function letterGuess(word, letter) {
     guessCount.text(`GUESSES LEFT: ${guesses}`);
     winOrLoseCheck(guesses, word);
   }
-}
+};
 
 function winOrLoseCheck(guess, word) {
   if (guess === 5) {
@@ -72,23 +88,4 @@ function winOrLoseCheck(guess, word) {
     winOrLose.text(`SORRY, YOU LOST! THE WORD WAS ${word.toUpperCase()}! `);
     hangman.attr("src", "https://i.imgur.com/Ybj5Tgn.jpg");
   }
-}
-
-button.on("click", function (evt) {
-  // console.log(this.innerHTML);
-  letter = this.innerHTML.toLowerCase();
-  this.disabled = true;
-  this.style.backgroundColor = "#640D14";
-  return letterGuess(randomWord, letter);
-})
-
-function setRandomWordDisplay(word) {
-  let letterArray = word.split("");
-  // console.log(letterArray);
-  letterArray.forEach((element, i) => {
-    wordDisplay.push(`<span id='box-${i}'>_</span>`);
-    // console.log(wordDisplay);
-  });
-  // console.log(wordDisplay);
-  return wordDisplay.join(" ");
-}
+};
